@@ -42,14 +42,14 @@ class User:
 
     def yield_interest(self):
         if self.account.balance >=0:
-            self.account.balance *=account.interest
+            self.account.balance *=self.account.interest
             print("Interest rate applied, and balance is ${}".format(self.account.balance))
         else:
-            print("{}'s balance is negative, {}".format(self.name, self.account.balance)
+            print("{}'s balance is negative, {}".format(self.name, self.account.balance))
 
 
     
 mika = User("Mika", "ameekah@hmail.com")
-# rassul = User("Rassul", "rassul@gmail.com")
+rassul = User("Rassul", "rassul@gmail.com")
 
 mika.deposit(100).withdrawal(10).transfer_money(rassul,10).display_account_info().yield_interest()
