@@ -56,7 +56,7 @@ class PolarBear(Animal):
     super().feed_animal()
     return self
 
-zoo_one = Zoo("Michelle's Zoo")
+zoo_one = Zoo("Mereilim's Zoo")
 
 simba = Lion("Simba", 5, 100, 100)
 zoo_one.add_animal(simba)
