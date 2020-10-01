@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+
+  #wrapper {
+    padding: 40px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  #boxes {
+    text-align: center;
+  }
+
+  .box {
+    display: inline-block;
+    margin: 40px;
+    width: 200px;
+    height: 200px;
+    background-color: {{ color }};
+    border: 2pt solid black;
+  }
