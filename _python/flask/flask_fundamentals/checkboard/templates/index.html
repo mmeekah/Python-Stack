@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type="text/css" href="{{url_for( 'static',filename='css/style.css')}}"/>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <img src ="{{ url_for('static', filename='img/1.png')}}">
+    <title>Checkboard</title>
+    <style>
+        table tr td {
+        width: 100px;
+        height: 100px;
+        }
+
+        .color1 {
+            background-color: red;
+        }
+
+        .color0 {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Home Page</h1>
+    <div id="checkboard">
+        <table>
+            {% for i in range(0,y): %}
+            <tr>
+              {% for j in range(0,x): %}
+              <td class="color{{ (i+j)%2 }}"></td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </table>
+    </div>
+</body>
+</html>
