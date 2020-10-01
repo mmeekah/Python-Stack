@@ -6,6 +6,16 @@ def hello_world():
     # Instead of returning a string, 
     # we'll return the result of the render_template method, passing in the name of our HTML file
     return render_template('index.html', phrase='hello', times=5)  
+
+@app.route('/lists')
+def render_lists():
+    student_info = [
+        {'name': 'Michael', 'age':35},
+        {'name': 'Mika', 'age':27},
+        {'name': 'Rassul', 'age':31},
+        {'name': 'Alim', 'age':4}
+    ]
+    return render_template('lists.html', random_numbers =[3,1,5], students=student_info)
     
 if __name__=="__main__":
     app.run(debug=True)   
