@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey result</title>
+    <style>
+        body {
+        font-family: arial;
+    }
+    
+    #wrapper {
+        width: 1000px;
+        text-align: center;
+    }
+    
+    h1 {
+        font-weight: bold;
+    }
+    
+    .container {
+        margin: auto;
+        width: 500px;
+        padding: 50px;
+        border: 2pt solid black;
+        border-radius: 5px;
+    }
+    
+    ul {
+        list-style: none;
+        text-align: left;
+    }
+    
+    li {
+        margin: 10px;
+    }
+    
+    input, select, textarea, button {
+        border-radius: 5px;
+    }
+    
+    /* a {
+        text-decoration: none;
+        color: black;
+    } */
+</style>
+</head>
+<body>
+    <div id="wrapper">
+        <div class ="container">
+            <form  class ="form" action='/' method='post'>
+            <h1>Submitted Info</h1>
+                <ul>
+                    <li>Name: {{name}}</li>
+                    <li> Dojo Location: {{location}} </li>
+                    <li>Favorite Language: {{language}}</li>
+                    <li>Comment Here: {{comment}}</li>
+                </ul>
+                <button type="submit">Go Back!</button>
+            </form>
+    </div>
+    </div>
+</body>
+</html>

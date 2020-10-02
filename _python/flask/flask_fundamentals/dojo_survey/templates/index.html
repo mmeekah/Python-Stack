@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+                body {
+                font-family: arial;
+            }
+            
+            #wrapper {
+                width: 1000px;
+                text-align: center;
+            }
+            
+            h1 {
+                font-weight: bold;
+            }
+            
+            .container {
+                margin: auto;
+                width: 500px;
+                padding: 50px;
+                border: 2pt solid black;
+                border-radius: 5px;
+            }
+            
+            ul {
+                list-style: none;
+                text-align: left;
+            }
+            
+            li {
+                margin: 10px;
+            }
+            
+            input, select, textarea, button {
+                border-radius: 5px;
+            }
+            
+            
+            
+            /* a {
+                text-decoration: none;
+                color: black;
+            } */
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>Dojo Survey</h1>
+    
+    <div class ="container">
+        <form  class ="form" action='/result' method='post'>
+            <ul>
+                <li>
+                    <label>Name: </label> 
+                    <input type='text' name='name' placeholder="Name">
+                </li>
+                <li>
+                    <label for="location">Dojo Location:</label>
+                    <select id="location" name="location">
+                    <option value="dallas">Dallas</option>
+                    <option value="boston">Boston</option>
+                    <option value="san_francisco">San Fracisco</option>
+                    <option value="ny">NY</option>
+                </select>
+                </li>
+                <li>
+                    <label>Favorite Language:</label>
+                    <select name="language">
+                    <option value="python">Python</option>
+                    <option value="js">JS</option>
+                    <option value="MEAN">MEAN</option>
+                    <option value="MEARN">MEARN</option>
+                    </select>
+                </li>
+                <li>
+                    <label>Comment(optional):</label>
+                    <textarea name="comment" rows="8" cols="40"></textarea>
+                </li>
+            </ul>
+                
+            <button type="submit">Submit</button>
+    </form>
+    </div>
+    </div>
+
+</body>
+</html>
