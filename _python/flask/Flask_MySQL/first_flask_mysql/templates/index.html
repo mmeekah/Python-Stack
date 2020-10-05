@@ -17,6 +17,13 @@
 
 
 <h1>Add a Friend</h1>
+{% with messages = get_flashed_messages() %}     
+    {% if messages %}                            
+        {% for message in messages %}            
+            <p>{{message}}</p>                  
+        {% endfor %}
+    {% endif %}
+{% endwith %}
 <form action="/create_friend" method="POST">
     <p>First Name: <input type="text" name="fname"></p>
     <p>Last Name: <input type="text" name="lname"></p>
