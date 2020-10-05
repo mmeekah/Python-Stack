@@ -1,0 +1,10 @@
+<html>
+    <head>
+        <script src="{{ url_for('static', filename='wall.js') }}"></script>
+    </head>
+    <form action="/register" method="post" id="regForm">
+        <div id="usernameMsg"></div>   <!-- notice the empty div reserved for our message -->
+        <input id="username" type="text">
+        <button type="submit">Submit</button>
+    </form>
+</html>
