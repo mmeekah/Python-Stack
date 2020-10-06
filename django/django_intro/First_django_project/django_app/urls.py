@@ -10,7 +10,9 @@ urlpatterns = [
     path('blogs/<int:number>/show', views.show),
     path('blogs/<int:number>/edit',views.edit),
     path('blogs/<int:number>/destroy', views.destroy),
-    pat('blogs/json', views.json_file)
+    # path('blogs/json', views.json_file),
+    path('page/', views.index2)
+
 ]
 
 # urlpatterns = [

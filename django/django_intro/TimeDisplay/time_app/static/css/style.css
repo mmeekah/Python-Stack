@@ -1,0 +1,20 @@
+#wrapper{
+    height: 300px;
+    width: 300px;
+    display: inline-block;
+    margin: 80px 450px;
+    align-items: center;
+    background-color: skyblue;
+    border: 2pt solid black;
+    padding: 40px 170px;
+    border-radius: 5px;
+    /* margin: 50px;
+    padding: 50px;
+    width: 1000px; */
+}   
+
+#container{
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}

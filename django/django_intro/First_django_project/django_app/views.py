@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect, JsonResponse
+from django.shortcuts import render, HttpResponse, redirect
 
 
 # Create your views here.
@@ -24,5 +24,13 @@ def edit(request,number):
 def destroy(request, number):
     return redirect('/')
 
-def json_file(request):
-    return JsonResponse({"title": "My first blog", "content": "Lorem, ipsum dolor"})
+# def json_file(request):
+#     return JsonResponse({"title": "My first blog", "content": "Lorem, ipsum dolor"})
+
+def index2(request):
+    context = {
+    	"name": "Noelle",
+    	"favorite_color": "turquoise",
+    	"pets": ["Bruce", "Fitz", "Georgie"]
+    }
+    return render(request, "index.html", context)
