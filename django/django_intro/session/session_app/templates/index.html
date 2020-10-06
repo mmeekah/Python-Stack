@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id="container">
+    <form action="clear" method= "POST">
+        {% csrf_token %}
+    <h1>Counter</h1>
+    <p>Total visits: {{count}} visits</p>
+    
+    <button type=submit>RESET</button>
+
+   
+</form>
+<form  action ="increment" method ="POST">
+    {% csrf_token %}
+    <p>Increment: {{increment}} </p>
+    <button name ="increment" type=submit>Increment</button>
+</form>
+</div>
+</body>
+</html>
