@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Great Number Game</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id ="container">
+    
+        <h1>Great Number Game</h1>
+        <h3>I'm thinking of a number between 1 and 100</h3>
+        <h3>Take a guess!</h3>
+        
+        <div>
+            {% if request.session.result == 1 %}
+            <div class="win">
+                <h1>{{request.session.magic_number}} was the number</h1>
+                <a href="/reset">
+                    <button>Play Again</button>
+
+                </a>
+            </div>
+            {% elif request.session.result == 2 %}
+            <div class="fail">
+                <h1>Too Low</h1>
+            </div>
+            {% elif request.session.result == None %}
+            <div class="hide"></div>
+            {% else %}
+            <div class="fail">
+                <h1>Too high</h1>
+            </div>
+            {% endif %}
+        </div>
+        <div id="box">
+            {% if request.session.result != 1 %}
+            <form action="/guess" method="POST" >
+                {% csrf_token %}
+                <input type="number" name="guess_num" min=1 max=100 placeholder="Enter Guess">
+                <button type="submit">Submit</button>
+                <input type='button' value='Reset' onclick="location.href = '/reset'">
+                
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

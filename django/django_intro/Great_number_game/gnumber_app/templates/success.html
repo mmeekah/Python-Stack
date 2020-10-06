@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Number Game</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id ="container">
+    
+        <h1>Great Number Game</h1>
+        <h3>YOU GUESSED!</h3>
+        <div id="box">
+            <form action="/" method="POST">
+                {% csrf_token %}
+                <button type="submit">play again</button>
+            </form>
+        </div>
+</div>
+</body>
+</html>
