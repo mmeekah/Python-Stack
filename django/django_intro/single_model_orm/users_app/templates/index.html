@@ -4,14 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORM</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
-    <h1>ORM!</h1>
-    <h1>All Users</h1>
-        <ul>
-        {% for user in all_the_users %}
-            <li>{{ user.first_name }}</li>
-        {% endfor %}
-        </ul>
+    <h1>All the Users</h1>
+    <div>
+        <table>
+         <thead>
+            <tr>
+            <th>ID</th> 
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            </tr>
+         </thead>
+         <tbody>
+           {% for i in all_the_users %}   <!--"all_users" from views.py = db from models-->
+            <tr>
+            <td>{{i.id}}</td> 
+            <td>{{i.first_name}} {{i.last_name}}</td><!--id, first_name .. is from models.py-->
+            <td>{{i.email_address}}</td>
+            <td>{{i.age}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+     </div>
+    
+
+      <h1>All the Users</h1>
+      <fieldset>
+        
+        <form action='/users' method='post'>
+            {% csrf_token %}
+            First Name: <input type='text' name='first_name'> 
+            <!--'first_name' is the key, later we will use in views.py-->
+            Last Name: <input type='text' name='last_name'>
+            Email: <input type='text' name='email'>
+            Age: <input type='number' name='age'>
+            <button type='submit'>Add</button>
+        </form>
+       </fieldset>
 </body>
 </html>
