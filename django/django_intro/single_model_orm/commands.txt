@@ -1,0 +1,21 @@
+python manage.py make migrations
+python manage.py migrate
+python manage.py shell
+from users_app.models import *
+Users.objects.create(first_name="Mika", last_name="Aitassova",email="ameekah93@gmail.com", age=27)
+Users.objects.create(first_name="Rasik", last_name="Aitassov",email="rassul@gmail.com", age=31)
+Users.objects.create(first_name="Alim", last_name="Hamza",email="alim@gmail.com", age=4)
+Users.objects.all()
+Users.objects.first()
+Users.objects.filter(first_name="Alim")
+Users.objects.all().values()
+Users.objects.get(id=1).__dict__
+c = Users.objects.get(id=1)
+c.last_name = "Pancake"
+c.save()
+Users.objects.get(id=3).__dict__
+ Users.objects.get(id=1).__dict__
+ c = Users.objects.get(id=2)
+ c.delete()
+ Users.objects.all().order_by("first_name")
+ Users.objects.all().order_by("-first_name")
