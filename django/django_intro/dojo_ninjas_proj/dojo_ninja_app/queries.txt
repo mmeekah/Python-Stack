@@ -1,0 +1,10 @@
+Dojo5 = Dojo.objects.get(id=5)
+ninja_5 = Ninja.objects.create(first_name="Judy2",last_name="Samanta2", dojo=Dojo5)
+Ninja.objects.all()
+
+ ninjas = Ninja.objects.filter(dojo=Dojo.objects.get(id=4))
+ ninjas.all().values()
+
+ ninja=Ninja.objects.get(id=9).dojo
+ ninja.id
+ Ninja.objects.get(id=6).__dict__
