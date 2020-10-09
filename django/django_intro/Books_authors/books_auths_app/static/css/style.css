@@ -1,0 +1,64 @@
+body {
+    margin: 0 auto;
+    
+}
+#container {
+    width: 970px;
+    margin: 0 auto;
+    background-color:skyblue;
+    padding: 60px;
+    border: 2pt solid black;
+    border-radius: 18px;
+
+}
+
+#ninjas_dojos {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    border-bottom: 2px solid black;
+
+}
+
+
+
+input {
+    height: 25px;
+}
+button {
+    margin-bottom: 50px;
+    margin-left: 50px;
+    width : 80px;
+    height: 25px;
+    border-style: none;
+}
+
+#formdojo {
+    margin-right: 100px;
+}
+
+#result {
+    margin-right: 100px;
+    
+    
+}
+/* #result2 {
+    text-align: center;
+    
+} */
+
+#all{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+table, th, td, tr{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table {
+    text-align: center;
+    width:400px;
+    margin: auto;
+}

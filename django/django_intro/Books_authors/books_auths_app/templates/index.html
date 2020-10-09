@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Books/Authors</title>
+</head>
+
+<body>
+    <div id="container">
+        <div id="ninjas_dojos">
+            <form id="formdojo" action="/book/create" method="POST">
+                {% csrf_token %}
+                <h3>Add a Book!</h3>
+                <p><label for="title">Title
+                        <input type="text" name="title"></label></p>
+                <p><label for="desc">Description
+                        <input type="text" name="desc"></label></p>
+                        <button type="submit">Add</button>
+                
+            </form>
+
+            <h3>All the Books</h3>
+            <table>
+                <thead>
+                <tr>
+                <th>ID</th> 
+                <th>Title</th>
+                <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for book in all_books %}   <!--"all_users" from views.py = db from models-->
+                <tr>
+                <td>{{book.id}}</td> 
+                <td>{{book.title}}</td><!--id, first_name .. is from models.py-->
+                <td><a href="/book_dets/{{ book.id }}">View</a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+                
+            
+        </div>
+    
+        
+
+<br>
+
+<div id = all>
+    <div id="ninjas_dojos">
+                
+            <form id="formninja" action="/author/create" method="POST">
+                <h3>Add Author!</h3>
+                {% csrf_token %}
+                <p><label for="first_name">First Name
+                        <input type="text" name="first_name"></label></p>
+                <p><label for="last_name">Last Name
+                        <input type="text" name="last_name"></label></p>
+                <p><label for="notes">Notes</label>
+                    <input type="text" name="notes"></label></p>
+                
+                <button type="submit">Add</button>
+            </form>
+
+            <h3>All the Authors</h3>
+                <table>
+                    <thead>
+                    <tr>
+                    <th>ID</th> 
+                    <th>Name</th>
+                    <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for author in all_authors %}   <!--"all_users" from views.py = db from models-->
+                    <tr>
+                    <td>{{author.id}}</td> 
+                    <td>{{author.first_name}} {{author.last_name}}</td><!--id, first_name .. is from models.py-->
+                    <td><a href="/author_dets/{{ author.id }}">View</a></td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+    </div>
+</div>
+
+</div>
+</body>
+
+</html>
