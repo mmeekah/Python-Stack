@@ -1,0 +1,33 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV-Shows</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id="container">
+        <div id="ninjas_dojos">
+            <form id="formdojo" action="/shows/create" method="POST">
+                {% csrf_token %}
+                <h3>Add a New Show!</h3>
+                <p><label for="title">Title
+                        <input type="text" name="title"></label></p>
+                <p><label for="desc">Description
+                        <input type="text" name="desc"></label></p>
+                <p><label for="notes">Network</label>
+                    <input type="text" name="network"></label></p>
+                <p><label for="release_date">Release Date</label></p>
+                    <input type="date" name="release_date">     
+                <p><label for="desc">Description
+                    <input type="textarea" name="desc"></label></p>
+                        <button type="submit">Add</button>
+                
+            </form>
+        </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+#container {
+    width: 970px;
+    margin: 0 auto;
+    background-color:skyblue;
+    padding: 60px;
+    border: 2pt solid black;
+    border-radius: 18px;
+
+}
+
+#ninjas_dojos {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    border-bottom: 2px solid black;
+
+}
+#formdojo {
+    margin-right: 100px;
+}
