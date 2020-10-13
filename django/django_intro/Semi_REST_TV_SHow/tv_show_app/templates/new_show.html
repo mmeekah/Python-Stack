@@ -14,6 +14,14 @@
             <form id="formdojo" action="/shows/create" method="POST">
                 {% csrf_token %}
                 <h3>Add a New Show!</h3>
+                <a href="/shows">Go Back</a>
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
                 <p><label for="title">Title
                         <input type="text" name="title"></label></p>
                 <p><label for="desc">Description
