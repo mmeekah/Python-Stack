@@ -1,0 +1,57 @@
+#wrapper {
+border: 2pt solid black;
+border-radius: 5px;
+margin: 50px;
+padding: 50px;
+width: 1000px;
+background-color: skyblue;
+}
+
+#register, #login{
+display: inline-block;
+}
+#login{
+vertical-align: top;
+margin-left: 50px;
+}
+.text-danger{
+color: red;
+}
+label{
+display: block;
+}
+input{
+margin: 20px 0;
+width: 400px;
+border-radius: 5px;
+}
+button{
+display: block;
+border-radius: 5px;
+background-color: rgb(205, 207, 221);
+font-weight: bold;
+padding: 5px;
+}
+#tableWrapper{
+display: inline-block;
+border-radius: 5px;
+overflow: hidden;
+margin-bottom: 20px;
+}
+table{
+border-collapse: collapse;
+}
+th{
+background-color: grey;
+padding: 5px;
+}
+td{
+background-color: lightgrey;
+padding: 5px;
+}
+a{
+text-decoration: none;
+}
+.green{
+color: green;
+}
