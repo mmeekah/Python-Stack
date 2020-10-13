@@ -42,3 +42,44 @@ class User(models.Model):
     def __repr__(self):
         return "<User object: {} {} {}".format(self.first_name, self.last_name, self.email)
     # Create your models here.
+
+class MessageManager(models.Manager):
+    def validator(self, post_data):
+        errors = {}
+        if len(post_data['message']) < 10:
+            errors['message'] = "Your message should be at least 10 characters long"
+        return errors
+
+class Message(models.Model):
+    message = models.TextField()
+    user = models.ForeignKey(User, related_name="messages", on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    objects = MessageManager()
+
+    def __repr__(self):
+        return f"<Message Object: {self.id} {self.message}>"
+
+
+class CommentManager(models.Manager):
+    def validator(self, post_data):
+        errors = {}
+        if len(post_data['comment']) == 00:
+            errors['comment'] = "Your comment should be at least be 1 characters long"
+        return errors
+
+
+class Comment(models.Model):
+    comment = models.TextField()
+    user = models.ForeignKey(User, related_name="user_comments",on_delete=models.CASCADE)
+    message = models.ForeignKey(Message, related_name="message_comments",on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    objects = CommentManager()
+
+    def __repr__(self):
+        return f"<Comment Object: {self.id} {self.comment}>"
+
+
+
+
