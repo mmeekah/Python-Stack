@@ -1,0 +1,69 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Book</title>
+        {%load static%}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <div id="header">
+            <div id ="top-right">
+            <p class="inline">Welcome {{ user.first_name }}</p>
+            <a href="/logout"><button type="button">Log Out</button></a>
+            </div>
+        </div>
+        <div id="wrapper">
+                <div id="register">
+                {%if book.uploaded_by.id == user.id%}
+                <form action="/edit_book/{{book.id}}" method="post">
+                {%csrf_token%}
+                
+                    <label for="title">Title</label>
+                    <input type="text" name="title" class="form-control" value="{{book.title}}">
+                
+                <p>Added by: {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}}</p>
+                <p>Added on: {{book.created_at}}</p>
+                <p>Last updated on: {{book.updated_at}}</p>
+                
+                    <label for="desc">Description</label>
+                    <textarea name="desc" cols="5" rows="5" class="form-control">{{book.desc}}</textarea>
+                <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+
+                <form action="/delete_book/{{book.id}}" method="post">
+                {%csrf_token%}
+                <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                {%else%}
+                <h3 class="h3">{{book.title}}</h3>
+                <p>Added by: {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}}</p>
+                <p>Added on: {{book.created_at}}</p>
+                <p>Last updated on: {{book.updated_at}}</p>
+                <p>Description: {{book.desc}}</p>
+                {%endif%}
+                <a href="/books">Go Back</a>
+                </div>
+
+                <div id ="login">
+                    <h3 class="h3">Users Who Like This Book: </h3>
+                    <ul >
+                    {%for user_who_liked in book.users_who_like.all%}
+                    {%if user == user_who_liked%}
+                    <li>{{user_who_liked.first_name}} {{user_who_liked.last_name}} <a
+                        href="/unfavorite/{{book.id}}/{{user_who_liked.id}}">Un-Favorite</a></li>
+                    {%else%}
+                    <li>{{user_who_liked.first_name}} {{user_who_liked.last_name}}</li>
+                    {%endif%}
+                    {%endfor%}
+                    {% if user not in book.users_who_like.all %}
+                    <a href="/add_to_favorites/{{book.id}}/{{user.id}}">Add to Favorites</a>
+                    {%endif%}
+                    </ul>
+                </div>
+            
+        </div>
+        
+    </body>
+    </html>
