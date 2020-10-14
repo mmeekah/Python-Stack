@@ -9,9 +9,14 @@
 </head>
 <body>
 <div id="wrapper">
-    <h1>Welcome, {{ user.first_name }}! You are now logged in!</h1>
+    <h1>Welcome, {{ user.first_name }}! </h1>
+    <h3>You are now logged in!</h3>
     <h2>All Users</h2>
-    {% if users %}
+    {% for message in messages %}
+    <p class="text-success"> {{ message }}</p>
+    {% endfor %}
+
+    
     <div id="tableWrapper">
         <table>
         <tr>
@@ -30,7 +35,7 @@
         {% endfor %}
         </table>
     </div>
-    {% endif %}
+    
     <a href="/logout"><button type="button">Logout</button></a>
 </div>
 </body>
